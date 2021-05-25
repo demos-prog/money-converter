@@ -41,11 +41,15 @@ export default function Converter() {
   }
 
   function firstValue(e) {
-    setFirstKurs(kurses[e.target.value].Cur_OfficialRate);
+    setFirstKurs(
+      kurses[e.target.value].Cur_OfficialRate / kurses[e.target.value].Cur_Scale
+    );
   }
 
   function secondValue(e) {
-    setSecKurs(kurses[e.target.value].Cur_OfficialRate);
+    setSecKurs(
+      kurses[e.target.value].Cur_OfficialRate / kurses[e.target.value].Cur_Scale
+    );
   }
 
   return (
