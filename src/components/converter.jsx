@@ -54,18 +54,64 @@ export default function Converter() {
         <input type="number" onChange={handleChange}></input>
         <select onChange={firstValue}>
           <option>choose</option>
+          <option value="1">AUD</option>
+          <option value="2">BGN</option>
+          <option value="3">UAH</option>
+          <option value="4">DKK</option>
           <option value="5">USD</option>
           <option value="6">EUR</option>
+          <option value="7">PLN</option>
+          <option value="8">JPY</option>
+          <option value="9">IRR</option>
+          <option value="10">ISK</option>
+          <option value="11">CAD</option>
+          <option value="12">CNY</option>
+          <option value="13">KWD</option>
+          <option value="14">MDL</option>
+          <option value="15">NZD</option>
+          <option value="16">NOK</option>
           <option value="17">RUB</option>
+          <option value="18">XDR</option>
+          <option value="19">SGD</option>
+          <option value="20">KGS</option>
+          <option value="21">KZT</option>
+          <option value="22">TRY</option>
+          <option value="23">GBP</option>
+          <option value="24">CZT</option>
+          <option value="25">SEK</option>
+          <option value="26">CHF</option>
         </select>
       </div>
       <div>
         <input type="number" placeholder={finalNumber} disabled></input>
         <select onChange={secondValue}>
           <option>choose</option>
+          <option value="1">AUD</option>
+          <option value="2">BGN</option>
+          <option value="3">UAH</option>
+          <option value="4">DKK</option>
           <option value="5">USD</option>
           <option value="6">EUR</option>
+          <option value="7">PLN</option>
+          <option value="8">JPY</option>
+          <option value="9">IRR</option>
+          <option value="10">ISK</option>
+          <option value="11">CAD</option>
+          <option value="12">CNY</option>
+          <option value="13">KWD</option>
+          <option value="14">MDL</option>
+          <option value="15">NZD</option>
+          <option value="16">NOK</option>
           <option value="17">RUB</option>
+          <option value="18">XDR</option>
+          <option value="19">SGD</option>
+          <option value="20">KGS</option>
+          <option value="21">KZT</option>
+          <option value="22">TRY</option>
+          <option value="23">GBP</option>
+          <option value="24">CZT</option>
+          <option value="25">SEK</option>
+          <option value="26">CHF</option>
         </select>
       </div>
       {list}
