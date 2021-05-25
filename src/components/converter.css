@@ -1,0 +1,24 @@
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items{
+  border: 1px solid #000;
+  width: min-content;
+}
+
+.item{
+  width: min-content;
+  display: flex;
+  margin: 20px;
+}
+
+.elems{
+  margin-left: 15px;
+}
+
+.stroke{
+  background-color: bisque;
+}
