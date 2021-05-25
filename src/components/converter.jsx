@@ -5,6 +5,7 @@ import "./converter.css";
 export default function Converter() {
   const [kurses, setKurses] = useState([]);
   const [list, setList] = useState([]);
+  const [options, setOptions] = useState([]);
   const [firstKurs, setFirstKurs] = useState(1);
   const [secKurs, setSecKurs] = useState(1);
   const [count, setCount] = useState(1);
@@ -31,6 +32,19 @@ export default function Converter() {
       );
     });
     setList(map);
+
+    let opts = kurses.map((item, index) => {
+      if (index !== 0) {
+        return (
+          <option key={nanoid()} value={index}>
+            {item.Cur_Abbreviation}
+          </option>
+        );
+      } else {
+        return null;
+      }
+    });
+    setOptions(opts);
   }, [kurses]);
 
   useEffect(() => {
@@ -70,64 +84,14 @@ export default function Converter() {
           <input type="number" onChange={handleChange} value={count}></input>
           <select onChange={firstValue}>
             <option value="0">BYN</option>
-            <option value="1">AUD</option>
-            <option value="2">BGN</option>
-            <option value="3">UAH</option>
-            <option value="4">DKK</option>
-            <option value="5">USD</option>
-            <option value="6">EUR</option>
-            <option value="7">PLN</option>
-            <option value="8">JPY</option>
-            <option value="9">IRR</option>
-            <option value="10">ISK</option>
-            <option value="11">CAD</option>
-            <option value="12">CNY</option>
-            <option value="13">KWD</option>
-            <option value="14">MDL</option>
-            <option value="15">NZD</option>
-            <option value="16">NOK</option>
-            <option value="17">RUB</option>
-            <option value="18">XDR</option>
-            <option value="19">SGD</option>
-            <option value="20">KGS</option>
-            <option value="21">KZT</option>
-            <option value="22">TRY</option>
-            <option value="23">GBP</option>
-            <option value="24">CZT</option>
-            <option value="25">SEK</option>
-            <option value="26">CHF</option>
+            {options}
           </select>
         </div>
         <div className="item">
           <input type="number" placeholder={finalNumber} disabled></input>
           <select onChange={secondValue}>
             <option value="0">BYN</option>
-            <option value="1">AUD</option>
-            <option value="2">BGN</option>
-            <option value="3">UAH</option>
-            <option value="4">DKK</option>
-            <option value="5">USD</option>
-            <option value="6">EUR</option>
-            <option value="7">PLN</option>
-            <option value="8">JPY</option>
-            <option value="9">IRR</option>
-            <option value="10">ISK</option>
-            <option value="11">CAD</option>
-            <option value="12">CNY</option>
-            <option value="13">KWD</option>
-            <option value="14">MDL</option>
-            <option value="15">NZD</option>
-            <option value="16">NOK</option>
-            <option value="17">RUB</option>
-            <option value="18">XDR</option>
-            <option value="19">SGD</option>
-            <option value="20">KGS</option>
-            <option value="21">KZT</option>
-            <option value="22">TRY</option>
-            <option value="23">GBP</option>
-            <option value="24">CZT</option>
-            <option value="25">SEK</option>
-            <option value="26">CHF</option>
+            {options}
           </select>
         </div>
       </div>
