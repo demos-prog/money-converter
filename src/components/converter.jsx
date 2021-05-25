@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./converter.css";
 
 export default function Converter() {
-  // const [curValuta, setCurValuta] = useState(4);
   const [kurses, setKurses] = useState([]);
   const [list, setList] = useState([]);
-  // Cur_ID: 292 - 5 -  EUR
-  // Cur_ID: 298 - 16 - RUB
-  // Cur_ID: 145 - 4 - USD
+  const [firstKurs, setFirstKurs] = useState(1);
+  const [secKurs, setSecKurs] = useState(1);
+  const [count, setCount] = useState(0);
+  const [finalNumber, setFinalNumber] = useState(0);
 
   useEffect(() => {
     async function getKurs() {
@@ -32,18 +32,42 @@ export default function Converter() {
     setList(map);
   }, [kurses]);
 
+  useEffect(() => {
+    setFinalNumber(((firstKurs / secKurs) * count).toFixed(2));
+  }, [secKurs, firstKurs, count]);
+
   function handleChange(e) {
-    console.log(e.target.value);
-    console.log(kurses);
+    setCount(e.target.value);
+  }
+
+  function firstValue(e) {
+    setFirstKurs(kurses[e.target.value].Cur_OfficialRate);
+  }
+
+  function secondValue(e) {
+    setSecKurs(kurses[e.target.value].Cur_OfficialRate);
   }
 
   return (
     <>
-      <select onChange={handleChange}>
-        <option value="4">USD</option>
-        <option value="5">EUR</option>
-        <option value="16">RUB</option>
-      </select>
+      <div>
+        <input type="number" onChange={handleChange}></input>
+        <select onChange={firstValue}>
+          <option>choose</option>
+          <option value="5">USD</option>
+          <option value="6">EUR</option>
+          <option value="17">RUB</option>
+        </select>
+      </div>
+      <div>
+        <input type="number" placeholder={finalNumber} disabled></input>
+        <select onChange={secondValue}>
+          <option>choose</option>
+          <option value="5">USD</option>
+          <option value="6">EUR</option>
+          <option value="17">RUB</option>
+        </select>
+      </div>
       {list}
     </>
   );
