@@ -41,15 +41,25 @@ export default function Converter() {
   }
 
   function firstValue(e) {
-    setFirstKurs(
-      kurses[e.target.value].Cur_OfficialRate / kurses[e.target.value].Cur_Scale
-    );
+    if (e.target.value === "0") {
+      setFirstKurs(1);
+    } else {
+      setFirstKurs(
+        kurses[e.target.value].Cur_OfficialRate /
+          kurses[e.target.value].Cur_Scale
+      );
+    }
   }
 
   function secondValue(e) {
-    setSecKurs(
-      kurses[e.target.value].Cur_OfficialRate / kurses[e.target.value].Cur_Scale
-    );
+    if (e.target.value === "0") {
+      setSecKurs(1);
+    } else {
+      setSecKurs(
+        kurses[e.target.value].Cur_OfficialRate /
+          kurses[e.target.value].Cur_Scale
+      );
+    }
   }
 
   return (
@@ -57,7 +67,7 @@ export default function Converter() {
       <div>
         <input type="number" onChange={handleChange}></input>
         <select onChange={firstValue}>
-          <option>choose</option>
+          <option value="0">BYN</option>
           <option value="1">AUD</option>
           <option value="2">BGN</option>
           <option value="3">UAH</option>
@@ -89,7 +99,7 @@ export default function Converter() {
       <div>
         <input type="number" placeholder={finalNumber} disabled></input>
         <select onChange={secondValue}>
-          <option>choose</option>
+          <option value="0">BYN</option>
           <option value="1">AUD</option>
           <option value="2">BGN</option>
           <option value="3">UAH</option>
