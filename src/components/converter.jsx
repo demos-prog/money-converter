@@ -57,7 +57,7 @@ export default function Converter() {
 
   function firstValue(e) {
     if (e.target.value === "0") {
-      setFirstKurs(1);
+      setFirstKurs(7);
     } else {
       setFirstKurs(
         kurses[e.target.value].Cur_OfficialRate /
